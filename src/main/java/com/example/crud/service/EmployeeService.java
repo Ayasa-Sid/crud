@@ -1,36 +1,36 @@
 package com.example.crud.service;
 
-import com.example.crud.entity.Product;
-import com.example.crud.repository.ProductRepository;
+import com.example.crud.entity.Employee;
+import com.example.crud.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ProductService {
+public class EmployeeService {
 
     @Autowired
-    private ProductRepository repository;
+    private EmployeeRepository repository;
 
-    public Product saveProduct(Product product) {
-        return this.repository.save(product);
+    public Employee saveEmployee(Employee employee) {
+        return this.repository.save(employee);
     }
 
-    public List<Product> getAllProducts() {
+    public List<Employee> getAllEmployees() {
         return this.repository.findAll();
     }
 
 
-    public Product getProductsById(int id) {
+    public Employee getEmployeesById(int id) {
         return this.repository.findById(id).orElse(null);
     }
 
-    public void deleteProduct(int id) {
+    public void deleteEmployee(int id) {
         this.repository.deleteById(id);
     }
 
-    public Product updateProduct(Product product) {
-        return this.repository.save(product);
+    public Employee updateEmployee(Employee employee) {
+        return this.repository.save(employee);
     }
 }

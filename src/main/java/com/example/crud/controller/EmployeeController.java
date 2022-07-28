@@ -1,7 +1,7 @@
 package com.example.crud.controller;
 
-import com.example.crud.entity.Product;
-import com.example.crud.service.ProductService;
+import com.example.crud.entity.Employee;
+import com.example.crud.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,37 +10,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="/product/v3")
-public class ProductController {
+@RequestMapping(value="/employee/v3")
+public class EmployeeController {
 
     @Autowired
-    private ProductService productService;
+    private EmployeeService employeeService;
 
-    @PostMapping("/addProduct")
-    public Product addProduct(@RequestBody Product product) {
-        return this.productService.saveProduct(product);
+    @PostMapping("/addEmployee")
+    public Employee addEmployee(@RequestBody Employee employee) {
+        return this.employeeService.saveEmployee(employee);
     }
 
-    @GetMapping("/products")
-    public List<Product> findALLProduct() {
-        return this.productService.getAllProducts();
+    @GetMapping("/employees")
+    public List<Employee> findALLEmployee() {
+        return this.employeeService.getAllEmployees();
     }
 
-    @GetMapping("/product/{id}")
-    public Product findProductById(@PathVariable int id) {
-        return this.productService.getProductsById(id);
+    @GetMapping("/employee/{id}")
+    public Employee findEmployeeById(@PathVariable int id) {
+        return this.employeeService.getEmployeesById(id);
     }
 
 
     @PutMapping("/update")
-    public Product updateProduct(@RequestBody Product product) {
-        return this.productService.updateProduct(product);
+    public Employee updateEmployee(@RequestBody Employee employee) {
+        return this.employeeService.updateEmployee(employee);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteProduct(@PathVariable int id) {
+    public ResponseEntity<String> deleteEmployee(@PathVariable int id) {
         try {
-            this.productService.deleteProduct(id);
+            this.employeeService.deleteEmployee(id);
             return new ResponseEntity<>("delete done", HttpStatus.OK);
         } catch (Exception ex){
             return new ResponseEntity<>("delete not done", HttpStatus.BAD_REQUEST);

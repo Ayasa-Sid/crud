@@ -11,15 +11,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "PRODUCT_TBL")
-public class Product {
+@Table(name = "EmployeeDetails")
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int employeeId;
     private String employeeName;
     private long employeePhone;
     private String employeeEmail;
-    private String employeeDesingnation;
-    private String employeeEmail;
+
 
 }
