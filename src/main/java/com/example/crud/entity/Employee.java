@@ -15,8 +15,11 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private int quantity;
-    private double price;
+    private int employeeId;
+    private String employeeName;
+    private long employeePhone;
+    private String employeeEmail;
+    private String employeeDesingnation;
+    private String employeeEmail;
+
 }
