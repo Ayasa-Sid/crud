@@ -1,0 +1,35 @@
+pipeline{
+    agent any{
+    stages('compiler stage'){
+        steps{
+             withMaven(maven: 'maven_3_8_6'){
+                 sh 'mvn clean compiler'
+
+             }
+
+         }
+
+    }
+stages('test stage'){
+        steps{
+             withMaven(maven: 'maven_3_8_5'){
+                 sh 'mvn test'
+
+             }
+
+         }
+
+    }
+    stages('deployment stage'){
+            steps{
+                 withMaven(maven:'maven_3_8_4' ){
+                     sh 'mvn deploy'
+
+                 }
+
+             }
+
+        }
+
+
+}
